@@ -4,6 +4,7 @@ require 'json'
 require 'yaml'
 require_relative "open_api_2_json_schema/version"
 require_relative 'attribute_handlers/all_of'
+require_relative "attribute_handlers/one_of"
 
 module OpenApi2JsonSchema
   module_function

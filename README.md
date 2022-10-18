@@ -34,6 +34,38 @@ schema = {
 OpenApi2JsonSchema.convert(schema)
 ```
 
+### Convert oneOf schema
+```yaml
+# Sample schema with oneOf
+schema:
+  oneOf:
+    - key: value
+      schema:
+        $ref: 'path-to-file.yml'
+  properties:
+    key2:
+      type: string
+```
+**Converted YAML schema to JSON schema**
+
+```json
+"schema": {
+  "oneOf": [
+    {
+      "key": "value",
+      "schema": {
+        "type": "object",
+      }
+    }
+  ],
+  "properties": {
+    "key2": {
+      "type": "string"
+    }
+  }
+}
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
