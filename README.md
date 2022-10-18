@@ -42,9 +42,15 @@ schema:
     - key: value
       schema:
         $ref: 'path-to-file.yml'
+    - key: value2
+      schema:
+        $ref: 'path-to-file-2.yml'
   properties:
-    key2:
+    key:
       type: string
+      enum:
+        - value1
+        - value2
 ```
 **Converted YAML schema to JSON schema**
 
@@ -56,11 +62,18 @@ schema:
       "schema": {
         "type": "object",
       }
+    },
+    {
+      "key": "value2",
+      "schema": {
+        "type": "array",
+      }
     }
   ],
   "properties": {
-    "key2": {
-      "type": "string"
+    "key": {
+      "type": "string",
+      "enum": ["value1", "value2"],
     }
   }
 }
