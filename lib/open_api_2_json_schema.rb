@@ -53,6 +53,8 @@ module OpenApi2JsonSchema
       when Array
         if struct == 'allOf'
           json_schema[struct] = AttributeHandlers::AllOf.new.call(data)
+        elsif struct == 'oneOf'
+          json_schema[struct] = AttributeHandlers::OneOf.new.call(data)
         else
           json_schema[struct] = data.map do |item|
             convert_schema(item)
